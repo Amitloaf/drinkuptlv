@@ -160,10 +160,20 @@
   setLang(pick());
   setInterval(tick, 1000);
 
-  // ---- Photo slots: hide images that haven't been uploaded yet ----
-  document.querySelectorAll(".ph img").forEach(function (img) {
-    var miss = function () { img.classList.add("missing"); };
-    if (img.complete && img.naturalWidth === 0) miss();
+  // ---- Photos: drop slots whose image file isn't uploaded; the grid adapts to how many are left ----
+  var gallery = $("gallery");
+  function layout() {
+    var n = gallery.querySelectorAll(".ph").length;
+    gallery.setAttribute("data-count", n);
+    $("photos").hidden = n === 0;
+  }
+  gallery.querySelectorAll(".ph img").forEach(function (img) {
+    var fig = img.closest(".ph");
+    var miss = function () { fig.remove(); layout(); };
+    var ok = function () { fig.classList.add("ok"); };
+    if (img.complete) { if (img.naturalWidth === 0) miss(); else ok(); }
     img.addEventListener("error", miss);
+    img.addEventListener("load", ok);
   });
+  layout();
 })();
