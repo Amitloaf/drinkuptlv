@@ -9,7 +9,7 @@ window.DRINKUP = {
     // Start time in Israel time. Keep "+02:00" (winter) or "+03:00" (summer) at the end.
     // Set to null if the date isn't announced yet: the page will say "Date coming soon".
     start: "2026-11-12T20:00:00+02:00",
-    end:   "2026-11-12T23:59:00+02:00",   // optional, used for "happening now"
+    end:   "2026-11-13T01:00:00+02:00",   // optional, used for "happening now"
     venue: "Schnitt",
     venueHe: "שניט",
     address: "HaArba'a St 12, Tel Aviv",
