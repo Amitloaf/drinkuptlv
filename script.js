@@ -78,11 +78,16 @@
     var rsvpBox = $("rsvp"), rsvp = ev.rsvp || {}, first = true;
     rsvpBox.innerHTML = "";
     [["facebook", T.rsvpFacebook], ["luma", T.rsvpLuma], ["meetup", T.rsvpMeetup]].forEach(function (r) {
-      if (!rsvp[r[0]]) return;
-      var a = document.createElement("a");
+      var a = document.createElement(rsvp[r[0]] ? "a" : "span");
+      a.textContent = r[1];
+      if (!rsvp[r[0]]) {
+        // no link yet: show a disabled button so all three RSVP options stay visible
+        a.className = "btn off"; a.title = T.rsvpSoon;
+        rsvpBox.appendChild(a);
+        return;
+      }
       a.className = "btn" + (first ? " primary" : "");
       a.href = rsvp[r[0]]; a.target = "_blank"; a.rel = "noopener";
-      a.textContent = r[1];
       rsvpBox.appendChild(a);
       first = false;
     });

@@ -174,3 +174,5 @@ a.link:hover .link-name { color: var(--yellow); }
 :lang(he) .ticket-label, :lang(he) .h3, :lang(he) .t i, :lang(he) .link.soon .go { letter-spacing: 0; }
 :lang(he) .h2 { letter-spacing: 0; }
 [dir="rtl"] a.link:hover .go { transform: translateX(-4px); }
+.btn.off { opacity: .45; cursor: default; }
+.btn.off:hover { border-color: var(--line); transform: none; }

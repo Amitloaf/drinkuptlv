@@ -15,7 +15,7 @@ window.DRINKUP = {
     address: "HaArba'a St 12, Tel Aviv",   // TODO: confirm address
     addressHe: "הארבעה 12, תל אביב",
     mapUrl: "https://www.google.com/maps/search/?api=1&query=Schnitt%2C%20HaArba%27a%2012%2C%20Tel%20Aviv",
-    // RSVP links for this event. Leave "" to hide a button.
+    // RSVP links for this event. Leave "" to show a greyed-out button.
     rsvp: {
       facebook: "https://www.facebook.com/events/1098985896255060",
       luma: "",    // TODO: Luma event link
