@@ -23,12 +23,11 @@ window.DRINKUP = {
     }
   },
 
-  // Community links. Leave "" to show the row as "soon".
+  // Community links. Leave "" to show the row as "soon"; delete a line to hide that row.
+  // Possible keys: whatsapp, discord, facebook, luma (calendar), meetup (group).
   community: {
     whatsapp: "https://chat.whatsapp.com/GiWvNFXKStBCphLrCNKDMa",
     discord:  "",   // TODO: Discord invite link (discord.gg/...)
-    facebook: "https://www.facebook.com/search/top?q=the%20gamedev%20drinkup%20israel",
-    luma:     "",   // TODO: Luma calendar link (all events)
-    meetup:   ""    // TODO: Meetup group link
+    facebook: "https://www.facebook.com/groups/2059814290888269"
   }
 };

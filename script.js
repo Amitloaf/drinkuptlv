@@ -103,6 +103,7 @@
     var list = $("links"), comm = C.community || {};
     list.innerHTML = "";
     ["whatsapp", "discord", "facebook", "luma", "meetup"].forEach(function (k) {
+      if (!(k in comm)) return;
       var url = comm[k], txt = T.links[k];
       var li = document.createElement("li");
       if (k === "whatsapp") li.className = "featured";
