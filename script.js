@@ -2,7 +2,10 @@
   var C = window.DRINKUP || {};
   var TEXT = window.DRINKUP_TEXT || {};
   var ev = C.nextEvent || {};
-  var $ = function (id) { return document.getElementById(id); };
+  // Missing elements (e.g. a cached older index.html with a newer script) get a detached
+  // stand-in, so the rest of the page still renders.
+  var $ = function (id) { return document.getElementById(id) || document.createElement("div"); };
+  var $q = function (sel) { return document.querySelector(sel) || document.createElement("div"); };
   var lang = "en", T = TEXT.en;
 
   // ---- String lights ----
@@ -51,9 +54,9 @@
   function setEnded() {
     if (ended) return;
     ended = true;
-    document.querySelector(".ticket").classList.add("ended");
-    document.querySelector(".ticket-count").hidden = true;
-    document.querySelector(".ticket-info").hidden = true;
+    $q(".ticket").classList.add("ended");
+    $q(".ticket-count").hidden = true;
+    $q(".ticket-info").hidden = true;
     $("ev-next").hidden = false;
     if (C.pastPhoto !== null) {
       var img = $("cover"), fallback = C.pastPhoto || "images/photo-1.jpg";
