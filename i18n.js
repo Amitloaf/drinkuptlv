@@ -11,6 +11,7 @@ window.DRINKUP_TEXT = {
     note: "RSVP on Facebook, Luma or Meetup, or just show up. Friends welcome.",
     cal: "+ Add to Google Calendar",
     waTicket: "Get every new date on WhatsApp",
+    dcTicket: "Join the Discord",
     rsvpFacebook: "RSVP on Facebook", rsvpLuma: "Luma", rsvpMeetup: "Meetup",
     stTonight: "Tonight", stLive: "We're on!", stNext: "Next date soon", stSoon: "Date soon",
     aboutTitle: 'A <span class="cozy">cozy</span> meetup for all game makers',
@@ -23,7 +24,7 @@ window.DRINKUP_TEXT = {
     soon: "soon", rsvpSoon: "link soon",
     links: {
       whatsapp: ["WhatsApp updates", "Quiet, announcements only. The best way to hear about the next drinkup first."],
-      discord: ["Discord server", "The community hangout. Chat, share your work, find collaborators."],
+      discord: ["Discord community", "Where the community lives between drinkups. Talk shop with local game devs, share your work, find collaborators."],
       facebook: ["Facebook group", "Photos, posts and discussion from the community."],
       luma: ["Luma", "Every upcoming drinkup. Subscribe to the calendar."],
       meetup: ["Meetup", "Follow the group to get event invites."]
@@ -42,6 +43,7 @@ window.DRINKUP_TEXT = {
     note: "אפשר לאשר הגעה בפייסבוק, ב-Luma או ב-Meetup, או פשוט לקפוץ. חברים מוזמנים.",
     cal: "+ הוספה ליומן Google",
     waTicket: "כל התאריכים החדשים בוואטסאפ",
+    dcTicket: "הצטרפו לדיסקורד",
     rsvpFacebook: "אישור הגעה בפייסבוק", rsvpLuma: "Luma", rsvpMeetup: "Meetup",
     stTonight: "הערב", stLive: "אנחנו כאן!", stNext: "התאריך הבא בקרוב", stSoon: "תאריך בקרוב",
     aboutTitle: 'מפגש <span class="cozy">קוזי</span> לכל יוצרי המשחקים',
@@ -54,7 +56,7 @@ window.DRINKUP_TEXT = {
     soon: "בקרוב", rsvpSoon: "קישור בקרוב",
     links: {
       whatsapp: ["עדכונים בוואטסאפ", "שקט, הודעות בלבד. הדרך הכי טובה לשמוע ראשונים על המפגש הבא."],
-      discord: ["שרת הדיסקורד", "הבית של הקהילה. צ'אט, שיתוף עבודות ומציאת שותפים."],
+      discord: ["קהילת הדיסקורד", "איפה שהקהילה חיה בין המפגשים. שיחות עם מפתחי משחקים מקומיים, שיתוף עבודות ומציאת שותפים."],
       facebook: ["קבוצת הפייסבוק", "תמונות, פוסטים ודיונים מהקהילה."],
       luma: ["Luma", "כל המפגשים הקרובים. אפשר להירשם ליומן."],
       meetup: ["Meetup", "עקבו אחרי הקבוצה כדי לקבל הזמנות."]

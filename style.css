@@ -180,7 +180,8 @@ a.link:hover .link-name { color: var(--yellow); }
 /* WhatsApp is the main channel: highlighted in the ticket and the link list */
 .wa { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; margin-inline-start: 16px; font-size: 14px; font-weight: 800; color: var(--green); }
 .wa[hidden] { display: none; }
-.links li.featured { grid-column: 1 / -1; border-bottom: 0; padding-block: 12px; }
+.links li.featured { border-bottom: 0; padding-block: 12px; }
+.links li:not(.featured) { grid-column: 1 / -1; }
 .links li.featured .link { background: rgb(126 226 63 / .1); border: 2px solid var(--green); border-radius: 16px; padding: 16px 18px; }
 .links li.featured .link-name { color: var(--green); font-size: 21px; }
 .links li.featured .go { color: var(--green); }
@@ -197,3 +198,7 @@ a.link:hover .link-name { color: var(--yellow); }
   .gallery[data-count="2"], .gallery[data-count="3"] { grid-template-columns: 1fr; grid-auto-rows: 220px; }
   .gallery[data-count="3"] .ph-big { grid-row: span 1; }
 }
+.wa.dc { color: #8fb4ff; }
+.links li.feat-discord .link { background: rgb(61 139 255 / .12); border-color: var(--blue); }
+.links li.feat-discord .link-name, .links li.feat-discord .go { color: #8fb4ff; }
+.links li.featured .link { height: 100%; }
