@@ -12,22 +12,22 @@ window.DRINKUP = {
     end:   "2026-11-12T23:59:00+02:00",   // optional, used for "happening now"
     venue: "Schnitt",
     venueHe: "שניט",
-    address: "HaArba'a St 12, Tel Aviv",   // TODO: confirm address
+    address: "HaArba'a St 12, Tel Aviv",
     addressHe: "הארבעה 12, תל אביב",
     mapUrl: "https://www.google.com/maps/search/?api=1&query=Schnitt%2C%20HaArba%27a%2012%2C%20Tel%20Aviv",
     // RSVP links for this event. Leave "" to show a greyed-out button.
     rsvp: {
       facebook: "https://www.facebook.com/events/1098985896255060",
-      luma: "",    // TODO: Luma event link
+      luma: "https://luma.com/shomecpw",
       meetup: ""   // TODO: Meetup event link
     }
   },
 
   // Community links. Leave "" to show the row as "soon".
   community: {
-    whatsapp: "",   // TODO: WhatsApp updates group invite link (chat.whatsapp.com/...)
+    whatsapp: "https://chat.whatsapp.com/GiWvNFXKStBCphLrCNKDMa",
     discord:  "",   // TODO: Discord invite link (discord.gg/...)
-    facebook: "",   // TODO: Facebook group link
+    facebook: "https://www.facebook.com/search/top?q=the%20gamedev%20drinkup%20israel",
     luma:     "",   // TODO: Luma calendar link (all events)
     meetup:   ""    // TODO: Meetup group link
   }
