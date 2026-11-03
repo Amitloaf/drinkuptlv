@@ -27,7 +27,7 @@ window.DRINKUP = {
   // Possible keys: whatsapp, discord, facebook, luma (calendar), meetup (group).
   community: {
     whatsapp: "https://chat.whatsapp.com/GiWvNFXKStBCphLrCNKDMa",
-    discord:  "https://discord.gg/P5tMfHUHbz",
+    discord:  "https://discord.gg/YdjrYY2PjG",
     facebook: "https://www.facebook.com/groups/2059814290888269"
   }
 };
