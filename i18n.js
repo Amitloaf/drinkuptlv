@@ -1,0 +1,63 @@
+/* Page text in English and Hebrew. Edit wording here. */
+window.DRINKUP_TEXT = {
+  en: {
+    switchTo: "עברית",
+    navNext: "Next", navAbout: "About", navJoin: "Join", navPhotos: "Photos",
+    h1: "The Gamedev Drinkup Tel Aviv: next event",
+    coverAlt: "The Gamedev Drinkup Tel Aviv. A cozy meetup for all game makers. Thursday November 12, 20:00 at Schnitt.",
+    countLabel: "Doors open in",
+    days: "days", hrs: "hrs", min: "min", sec: "sec",
+    dateSoon: "Date coming soon",
+    note: "RSVP on Facebook, Luma or Meetup, or just show up. Friends welcome.",
+    cal: "+ Add to Google Calendar",
+    rsvpFacebook: "RSVP on Facebook", rsvpLuma: "Luma", rsvpMeetup: "Meetup",
+    stTonight: "Tonight", stLive: "We're on!", stNext: "Next date soon", stSoon: "Date soon",
+    aboutTitle: 'A <span class="cozy">cozy</span> meetup for all game makers',
+    about1: "An informal evening for the Tel Aviv game dev scene. No talks, no slides, no pitch competition. Just a bar, a crowd of people who make games, and time to actually talk to each other.",
+    about2: "Entry is free, you buy your own drinks, and you can drop in whenever suits you. RSVP if you like or just show up, and feel free to bring friends. Got a build on your phone or laptop? Bring it and show it off.",
+    whoTitle: "Who comes",
+    roles: ["Programmers", "Designers", "Artists", "Animators", "Producers", "Audio", "QA", "Community & marketing", "Students", "Indies", "Studio folks", "Curious newcomers"],
+    fine: "Mobile, PC, console, VR, board games, jam games. If you make games or want to, you're in.",
+    joinTitle: "Stay in the loop",
+    soon: "soon",
+    links: {
+      whatsapp: ["WhatsApp updates", "Quiet, announcements only. The best way to hear about the next date."],
+      discord: ["Discord server", "The community hangout. Chat, share your work, find collaborators."],
+      facebook: ["Facebook group", "Photos, posts and discussion from the community."],
+      luma: ["Luma", "Every upcoming drinkup. Subscribe to the calendar."],
+      meetup: ["Meetup", "Follow the group to get event invites."]
+    },
+    photosTitle: "From past drinkups",
+    foot: "Made by and for Tel Aviv game makers · Hosted by Ofir Agami &amp; Amit Arnon"
+  },
+  he: {
+    switchTo: "English",
+    navNext: "המפגש הבא", navAbout: "מה זה", navJoin: "קהילה", navPhotos: "תמונות",
+    h1: "הגיימדב דרינקאפ תל אביב: המפגש הבא",
+    coverAlt: "הגיימדב דרינקאפ תל אביב. מפגש חמים לכל יוצרי המשחקים. יום חמישי 12 בנובמבר, 20:00 בשניט.",
+    countLabel: "נפגשים בעוד",
+    days: "ימים", hrs: "שעות", min: "דקות", sec: "שניות",
+    dateSoon: "התאריך יפורסם בקרוב",
+    note: "אפשר לאשר הגעה בפייסבוק, ב-Luma או ב-Meetup, או פשוט לקפוץ. חברים מוזמנים.",
+    cal: "+ הוספה ליומן Google",
+    rsvpFacebook: "אישור הגעה בפייסבוק", rsvpLuma: "Luma", rsvpMeetup: "Meetup",
+    stTonight: "הערב", stLive: "אנחנו כאן!", stNext: "התאריך הבא בקרוב", stSoon: "תאריך בקרוב",
+    aboutTitle: 'מפגש <span class="cozy">חמים</span> לכל יוצרי המשחקים',
+    about1: "ערב לא רשמי לקהילת פיתוח המשחקים של תל אביב. בלי הרצאות, בלי מצגות, בלי תחרות פיצ'ים. רק בר, חבורה של אנשים שעושים משחקים, וזמן לדבר באמת.",
+    about2: "הכניסה חופשית, כל אחד קונה לעצמו לשתות, ואפשר להגיע מתי שנוח. אפשר לאשר הגעה מראש או פשוט לבוא, ומוזמנים להביא חברים. יש לכם בילד בטלפון או בלפטופ? תביאו ותראו.",
+    whoTitle: "מי מגיע",
+    roles: ["מתכנתים", "מעצבי משחק", "ארטיסטים", "אנימטורים", "פרודיוסרים", "סאונד", "QA", "קהילה ושיווק", "סטודנטים", "אינדי", "אנשי סטודיו", "סקרנים חדשים"],
+    fine: "מובייל, PC, קונסולות, VR, משחקי קופסה, משחקי ג'אם. אם אתם עושים משחקים או רוצים להתחיל, אתם בפנים.",
+    joinTitle: "להישאר מעודכנים",
+    soon: "בקרוב",
+    links: {
+      whatsapp: ["עדכונים בוואטסאפ", "שקט, הודעות בלבד. הדרך הכי טובה לשמוע על התאריך הבא."],
+      discord: ["שרת הדיסקורד", "הבית של הקהילה. צ'אט, שיתוף עבודות ומציאת שותפים."],
+      facebook: ["קבוצת הפייסבוק", "תמונות, פוסטים ודיונים מהקהילה."],
+      luma: ["Luma", "כל המפגשים הקרובים. אפשר להירשם ליומן."],
+      meetup: ["Meetup", "עקבו אחרי הקבוצה כדי לקבל הזמנות."]
+    },
+    photosTitle: "ממפגשים קודמים",
+    foot: "נוצר על ידי ובשביל יוצרי המשחקים של תל אביב · מארחים: אופיר אגמי ועמית ארנון"
+  }
+};

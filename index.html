@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gamedev Drinkup TLV</title>
+<meta name="description" content="A cozy meetup for all game makers in Tel Aviv. Programmers, artists, designers, producers and everyone in between. Free entry, friends welcome.">
+<meta name="theme-color" content="#140e12">
+<meta property="og:title" content="The Gamedev Drinkup Tel Aviv">
+<meta property="og:description" content="A cozy meetup for all game makers. Drinks, games and good people.">
+<meta property="og:image" content="https://www.gamedevdrinkuptlv.com/images/cover.jpg">
+<meta property="og:url" content="https://www.gamedevdrinkuptlv.com/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;800&family=Rubik:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!--BODY-START-->
+<div class="lights" aria-hidden="true">
+  <svg class="wire" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 0 Q 25 12 50 3 T 100 0" fill="none" vector-effect="non-scaling-stroke"/></svg>
+  <div class="bulbs" id="bulbs"></div>
+</div>
+
+<header class="top">
+  <div class="wrap top-in">
+    <a class="mark" dir="ltr" href="#top" aria-label="Gamedev Drinkup TLV, back to top">
+      <span class="mark-1"><span class="c1">G</span><span class="c2">a</span><span class="c3">m</span><span class="c4">e</span><span class="c5">d</span><span class="c6">e</span><span class="c7">v</span></span>
+      <span class="mark-2">Drinkup</span>
+      <span class="mark-tlv">TLV</span>
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#next" data-i18n="navNext">Next</a>
+      <a href="#about" data-i18n="navAbout">About</a>
+      <a href="#join" data-i18n="navJoin">Join</a>
+      <a href="#photos" data-i18n="navPhotos">Photos</a>
+      <button class="lang" id="lang" type="button" lang="he">עברית</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero wrap" id="next" aria-labelledby="ev-heading">
+    <h1 class="sr-only" id="ev-heading" data-i18n="h1">The Gamedev Drinkup Tel Aviv: next event</h1>
+    <figure class="poster neon">
+      <img id="cover" src="images/cover.jpg" width="1200" height="600" alt="The Gamedev Drinkup Tel Aviv. A cozy meetup for all game makers. Thursday November 12, 20:00 at Schnitt.">
+    </figure>
+
+    <article class="ticket neon" aria-label="Next event details">
+      <div class="ticket-count">
+        <div class="ticket-label"><span data-i18n="countLabel">Doors open in</span><span class="status" id="ev-status"></span></div>
+        <div class="timer" id="timer">
+          <div class="t"><b id="t-d">--</b><i data-i18n="days">days</i></div>
+          <div class="t"><b id="t-h">--</b><i data-i18n="hrs">hrs</i></div>
+          <div class="t"><b id="t-m">--</b><i data-i18n="min">min</i></div>
+          <div class="t"><b id="t-s">--</b><i data-i18n="sec">sec</i></div>
+        </div>
+      </div>
+      <div class="ticket-info">
+        <p class="when" id="ev-when">Date coming soon</p>
+        <p class="where"><a id="ev-where" href="#" target="_blank" rel="noopener">Venue TBA</a> <span id="ev-addr"></span></p>
+        <p class="note" data-i18n="note">RSVP on Facebook, Luma or Meetup, or just show up. Friends welcome.</p>
+        <div class="rsvp" id="rsvp"></div>
+        <a class="cal" id="ev-cal" href="#" target="_blank" rel="noopener" data-i18n="cal">+ Add to Google Calendar</a>
+      </div>
+    </article>
+  </section>
+
+  <section class="wrap sec about" id="about" aria-labelledby="about-title">
+    <div class="about-main">
+      <h2 class="h2" id="about-title" data-i18n="aboutTitle">A <span class="cozy">cozy</span> meetup for all game makers</h2>
+      <p data-i18n="about1">An informal evening for the Tel Aviv game dev scene. No talks, no slides, no pitch competition. Just a bar, a crowd of people who make games, and time to actually talk to each other.</p>
+      <p data-i18n="about2">Entry is free, you buy your own drinks, and you can drop in whenever suits you. RSVP if you like or just show up, and feel free to bring friends. Got a build on your phone or laptop? Bring it and show it off.</p>
+    </div>
+    <div class="about-side">
+      <h3 class="h3" data-i18n="whoTitle">Who comes</h3>
+      <ul class="roles" id="roles">
+        <li>Programmers</li><li>Designers</li><li>Artists</li><li>Animators</li><li>Producers</li><li>Audio</li><li>QA</li><li>Community &amp; marketing</li><li>Students</li><li>Indies</li><li>Studio folks</li><li>Curious newcomers</li>
+      </ul>
+      <p class="fine" data-i18n="fine">Mobile, PC, console, VR, board games, jam games. If you make games or want to, you're in.</p>
+    </div>
+  </section>
+
+  <section class="wrap sec" id="join" aria-labelledby="join-title">
+    <h2 class="h2" id="join-title" data-i18n="joinTitle">Stay in the loop</h2>
+    <ul class="links" id="links"></ul>
+  </section>
+
+  <section class="wrap sec" id="photos" aria-labelledby="photos-title">
+    <h2 class="h2" id="photos-title" data-i18n="photosTitle">From past drinkups</h2>
+    <div class="gallery">
+      <figure class="ph ph-big"><img src="images/photo-1.jpg" alt="The crowd at a Gamedev Drinkup" loading="lazy"><figcaption>photo-1.jpg</figcaption></figure>
+      <figure class="ph"><img src="images/photo-2.jpg" alt="People chatting at the bar" loading="lazy"><figcaption>photo-2.jpg</figcaption></figure>
+      <figure class="ph"><img src="images/photo-3.jpg" alt="Someone showing a game on a laptop" loading="lazy"><figcaption>photo-3.jpg</figcaption></figure>
+      <figure class="ph"><img src="images/photo-4.jpg" alt="Drinks on a table" loading="lazy"><figcaption>photo-4.jpg</figcaption></figure>
+      <figure class="ph"><img src="images/photo-5.jpg" alt="Group photo of attendees" loading="lazy"><figcaption>photo-5.jpg</figcaption></figure>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <span class="foot-mark" dir="ltr">Gamedev Drinkup <b>TLV</b></span>
+    <span data-i18n="foot">Made by and for Tel Aviv game makers · Hosted by Ofir Agami &amp; Amit Arnon</span>
+  </div>
+</footer>
+<!--BODY-END-->
+<script src="config.js"></script>
+<script src="i18n.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
