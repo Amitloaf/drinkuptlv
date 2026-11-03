@@ -202,3 +202,15 @@ a.link:hover .link-name { color: var(--yellow); }
 .links li.feat-discord .link { background: rgb(61 139 255 / .12); border-color: var(--blue); }
 .links li.feat-discord .link-name, .links li.feat-discord .go { color: #8fb4ff; }
 .links li.featured .link { height: 100%; }
+
+/* "Next drinkup coming soon" state, after an event ends */
+.ticket.ended { grid-template-columns: 1fr; text-align: center; padding: 28px; }
+.ticket-next { display: grid; gap: 10px; justify-items: center; }
+.ticket-next[hidden] { display: none; }
+.next-title { margin: 0; font: 700 clamp(24px, 4vw, 32px)/1.15 var(--f-display); color: var(--yellow); text-shadow: 0 3px 0 #c76a00; text-wrap: balance; }
+.next-body { margin: 0; color: var(--muted); max-width: 52ch; }
+.ticket-next .rsvp { justify-content: center; margin-top: 8px; }
+.btn-wa { background: var(--green); border-color: var(--green); color: var(--panel); box-shadow: 0 4px 0 #3f8a17; }
+.btn-dc { background: var(--blue); border-color: var(--blue); color: #fff; box-shadow: 0 4px 0 #1f4fa8; }
+.btn-wa:hover, .btn-dc:hover { border-color: inherit; }
+.ticket-count[hidden], .ticket-info[hidden] { display: none; }

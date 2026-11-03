@@ -23,6 +23,9 @@ window.DRINKUP = {
     }
   },
 
+  // Photo shown in the hero after the event ends (instead of the old cover). Set to null to keep the cover.
+  pastPhoto: "images/photo-1.jpg",
+
   // Community links. Leave "" to show the row as "soon"; delete a line to hide that row.
   // Possible keys: whatsapp, discord, facebook, luma (calendar), meetup (group).
   community: {

@@ -27,8 +27,6 @@
   var start = ev.start ? new Date(ev.start) : null;
   if (start && isNaN(start)) start = null;
   var end = ev.end ? new Date(ev.end) : (start ? new Date(start.getTime() + 4 * 3600e3) : null);
-  // "Tonight" only from 06:00 on the event day, in the event's own timezone
-  var tonightFrom = start ? new Date(ev.start.slice(0, 11) + "06:00:00" + ev.start.slice(19)) : null;
 
   var cal = $("ev-cal");
   if (start) {
@@ -44,6 +42,26 @@
   if (wa) $("ev-wa").href = wa; else $("ev-wa").hidden = true;
   var dc = (C.community || {}).discord;
   if (dc) $("ev-dc").href = dc; else $("ev-dc").hidden = true;
+  if (wa) $("next-wa").href = wa; else $("next-wa").hidden = true;
+  if (dc) $("next-dc").href = dc; else $("next-dc").hidden = true;
+
+  // After the event ends (or with no date set), the panel switches to "next drinkup coming soon"
+  // and the hero shows a past-event photo instead of the old cover.
+  var ended = false;
+  function setEnded() {
+    if (ended) return;
+    ended = true;
+    document.querySelector(".ticket").classList.add("ended");
+    document.querySelector(".ticket-count").hidden = true;
+    document.querySelector(".ticket-info").hidden = true;
+    $("ev-next").hidden = false;
+    if (C.pastPhoto !== null) {
+      var img = $("cover"), fallback = C.pastPhoto || "images/photo-1.jpg";
+      var probe = new Image();
+      probe.onload = function () { img.src = fallback; img.alt = T.nextCoverAlt; };
+      probe.src = fallback;
+    }
+  }
 
   var icons = {
     whatsapp: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.8-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2l-.4-.3Z"/></svg>',
@@ -67,7 +85,7 @@
     var sw = $("lang");
     sw.textContent = T.switchTo;
     sw.lang = he ? "en" : "he";
-    $("cover").alt = T.coverAlt;
+    $("cover").alt = ended ? T.nextCoverAlt : T.coverAlt;
 
     // date + place
     if (start) {
@@ -131,19 +149,26 @@
   var status = $("ev-status");
   var pad = function (v) { return String(v).padStart(2, "0"); };
   function set(d, h, m, s) { $("t-d").textContent = d; $("t-h").textContent = h; $("t-m").textContent = m; $("t-s").textContent = s; }
+  var ilFmt = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Jerusalem", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", hourCycle: "h23" });
+  function ilParts(t) { var o = {}; ilFmt.formatToParts(new Date(t)).forEach(function (p) { o[p.type] = p.value; }); return o; }
+  function ilDay(t) { var p = ilParts(t); return Date.UTC(+p.year, +p.month - 1, +p.day) / 86400e3; }
+  function ilHour(t) { return +ilParts(t).hour; }
   function tick() {
     status.classList.remove("live");
-    if (!start) { status.textContent = T.stSoon; return; }
+    if (!start) { setEnded(); return; }
     var now = Date.now(), diff = start - now;
     if (diff <= 0) {
       set("00", "00", "00", "00");
       if (now < end) { status.textContent = T.stLive; status.classList.add("live"); }
-      else status.textContent = T.stNext;
+      else setEnded();
       return;
     }
     var s = Math.floor(diff / 1000);
     set(pad(Math.floor(s / 86400)), pad(Math.floor(s / 3600) % 24), pad(Math.floor(s / 60) % 60), pad(s % 60));
-    if (now >= tonightFrom) { status.textContent = T.stTonight; status.classList.add("live"); }
+    // Badge only from 06:00 Israel time: "Tomorrow" the day before, "Tonight" on the day itself
+    var dNow = ilDay(now), dEv = ilDay(start.getTime()), awake = ilHour(now) >= 6;
+    if (awake && dNow === dEv) { status.textContent = T.stTonight; status.classList.add("live"); }
+    else if (awake && dEv - dNow === 1) status.textContent = T.stTomorrow;
     else status.textContent = "";
   }
 
