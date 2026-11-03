@@ -27,6 +27,8 @@
   var start = ev.start ? new Date(ev.start) : null;
   if (start && isNaN(start)) start = null;
   var end = ev.end ? new Date(ev.end) : (start ? new Date(start.getTime() + 4 * 3600e3) : null);
+  // "Tonight" only from 06:00 on the event day, in the event's own timezone
+  var tonightFrom = start ? new Date(ev.start.slice(0, 11) + "06:00:00" + ev.start.slice(19)) : null;
 
   var cal = $("ev-cal");
   if (start) {
@@ -141,7 +143,7 @@
     }
     var s = Math.floor(diff / 1000);
     set(pad(Math.floor(s / 86400)), pad(Math.floor(s / 3600) % 24), pad(Math.floor(s / 60) % 60), pad(s % 60));
-    if (diff < 86400e3) { status.textContent = T.stTonight; status.classList.add("live"); }
+    if (now >= tonightFrom) { status.textContent = T.stTonight; status.classList.add("live"); }
     else status.textContent = "";
   }
 
