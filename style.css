@@ -176,3 +176,11 @@ a.link:hover .link-name { color: var(--yellow); }
 [dir="rtl"] a.link:hover .go { transform: translateX(-4px); }
 .btn.off { opacity: .45; cursor: default; }
 .btn.off:hover { border-color: var(--line); transform: none; }
+
+/* WhatsApp is the main channel: highlighted in the ticket and the link list */
+.wa { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; margin-inline-start: 16px; font-size: 14px; font-weight: 800; color: var(--green); }
+.wa[hidden] { display: none; }
+.links li.featured { grid-column: 1 / -1; border-bottom: 0; padding-block: 12px; }
+.links li.featured .link { background: rgb(126 226 63 / .1); border: 2px solid var(--green); border-radius: 16px; padding: 16px 18px; }
+.links li.featured .link-name { color: var(--green); font-size: 21px; }
+.links li.featured .go { color: var(--green); }
