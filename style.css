@@ -8,8 +8,10 @@
   --line: #3a2a2e;
   --cream: #fbf1e4;
   --muted: #c4b0a2;
-  --red: #ff4d3d; --orange: #ff9a1f; --yellow: #ffe14d; --green: #7ee23f;
-  --cyan: #22c7f5; --blue: #3d8bff; --pink: #ff3fa4; --violet: #b14dff;
+  /* softened (~30% less saturated) versions of the cover's neon colors */
+  --red: #e7746a; --orange: #e2a050; --yellow: #e9d677; --green: #8fd065;
+  --cyan: #50bddb; --blue: #6a9ce7; --pink: #e76bac; --violet: #b777e9;
+  --shade: #ab681c;  /* 3D shadow under yellow digits and buttons */
   --neon: linear-gradient(115deg, var(--violet), var(--pink) 25%, var(--red) 50%, var(--orange) 72%, var(--yellow));
   --f-display: "Fredoka", "Baloo 2", "Arial Rounded MT Bold", system-ui, sans-serif;
   --f-body: "Nunito", "Segoe UI", system-ui, sans-serif;
@@ -20,9 +22,9 @@ html { scroll-behavior: smooth; scroll-padding-top: 72px; background: var(--nigh
 body {
   margin: 0; color: var(--cream); font: 17px/1.6 var(--f-body);
   background:
-    radial-gradient(900px 520px at 8% -6%, rgb(255 150 40 / .20), transparent 70%),
-    radial-gradient(800px 480px at 96% 4%, rgb(255 63 164 / .13), transparent 70%),
-    radial-gradient(1000px 600px at 50% 110%, rgb(255 110 30 / .10), transparent 70%),
+    radial-gradient(900px 520px at 8% -6%, rgb(255 150 40 / .12), transparent 70%),
+    radial-gradient(800px 480px at 96% 4%, rgb(255 63 164 / .08), transparent 70%),
+    radial-gradient(1000px 600px at 50% 110%, rgb(255 110 30 / .06), transparent 70%),
     var(--night);
   overflow-x: hidden;
 }
@@ -42,7 +44,7 @@ a { color: var(--yellow); }
 .wire { position: absolute; inset: 0 0 auto; width: 100%; height: 56px; }
 .wire path { stroke: #4a3430; stroke-width: 1.5; }
 .bulbs { position: absolute; inset: 0; }
-.bulb { position: absolute; width: 9px; height: 12px; margin-left: -4.5px; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; background: #ffd79a; box-shadow: 0 0 6px 2px rgb(255 190 90 / .9), 0 0 22px 6px rgb(255 140 40 / .35); }
+.bulb { position: absolute; width: 9px; height: 12px; margin-left: -4.5px; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; background: #f3dcb8; box-shadow: 0 0 6px 2px rgb(255 200 120 / .74), 0 0 22px 6px rgb(255 160 70 / .21); }
 @media (prefers-reduced-motion: no-preference) {
   .bulb { animation: glow 3.2s ease-in-out infinite; }
   @keyframes glow { 50% { opacity: .55; box-shadow: 0 0 4px 1px rgb(255 190 90 / .7), 0 0 12px 3px rgb(255 140 40 / .2); } }
@@ -64,13 +66,14 @@ a { color: var(--yellow); }
 .neon {
   border: 4px solid transparent; border-radius: 22px;
   background: linear-gradient(var(--panel), var(--panel)) padding-box, var(--neon) border-box;
-  box-shadow: 0 0 0 1px rgb(255 255 255 / .04), -12px 0 40px -12px rgb(255 63 164 / .45), 12px 10px 40px -12px rgb(255 160 30 / .45);
+  box-shadow: 0 0 0 1px rgb(255 255 255 / .04), -12px 0 40px -12px rgb(255 63 164 / .27), 12px 10px 40px -12px rgb(255 160 30 / .27);
 }
 
 /* Hero */
 .hero { padding-block: 14px 8px; }
 .poster { margin: 0; overflow: hidden; }
-.poster img { width: 100%; height: auto; aspect-ratio: 2 / 1; object-fit: cover; border-radius: 18px; }
+.poster img { width: 100%; height: auto; aspect-ratio: 2 / 1; object-fit: cover; border-radius: 18px; filter: saturate(.65) brightness(.97); }
+.hero.ended .poster img { filter: none; }  /* real photo after the event: keep natural colors */
 
 .ticket {
   position: relative; margin: -56px auto 0; width: calc(100% - 48px); max-width: 860px;
@@ -82,7 +85,7 @@ a { color: var(--yellow); }
 .status.live { background: var(--pink); color: #fff; }
 .timer { display: flex; gap: 6px; }
 .t { width: 74px; text-align: center; background: var(--raise); border-radius: 12px; padding: 8px 0 6px; }
-.t b { display: block; font: 700 38px/1 var(--f-display); color: var(--yellow); text-shadow: 0 3px 0 #c76a00; font-variant-numeric: tabular-nums; }
+.t b { display: block; font: 700 38px/1 var(--f-display); color: var(--yellow); text-shadow: 0 3px 0 var(--shade); font-variant-numeric: tabular-nums; }
 .t i { display: block; font: 600 12px/1 var(--f-body); font-style: normal; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin-top: 8px; }
 
 .ticket-info { min-width: 0; }
@@ -95,8 +98,8 @@ a { color: var(--yellow); }
 .rsvp { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
 .btn { display: inline-flex; align-items: center; padding: 11px 18px; border-radius: 999px; font: 600 16px/1 var(--f-display); text-decoration: none; color: var(--cream); border: 2px solid var(--line); background: var(--raise); transition: transform .15s, border-color .15s; }
 .btn:hover { border-color: var(--cream); transform: translateY(-1px); }
-.btn.primary { color: var(--panel); background: var(--yellow); border-color: var(--yellow); box-shadow: 0 4px 0 #c76a00; }
-.btn.primary:hover { box-shadow: 0 5px 0 #c76a00; }
+.btn.primary { color: var(--panel); background: var(--yellow); border-color: var(--yellow); box-shadow: 0 4px 0 var(--shade); }
+.btn.primary:hover { box-shadow: 0 5px 0 var(--shade); }
 .cal { display: inline-block; margin-top: 12px; font-size: 14px; color: var(--muted); }
 .cal[hidden] { display: none; }
 
@@ -178,7 +181,9 @@ a.link:hover .link-name { color: var(--yellow); }
 .btn.off:hover { border-color: var(--line); transform: none; }
 
 /* WhatsApp is the main channel: highlighted in the ticket and the link list */
-.wa { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; margin-inline-start: 16px; font-size: 14px; font-weight: 800; color: var(--green); }
+.ticket-links { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 12px; font-size: 14px; }
+.ticket-links .cal { margin-top: 0; }
+.wa { display: inline-flex; align-items: center; gap: 6px; font-weight: 800; color: var(--green); }
 .wa[hidden] { display: none; }
 .links li.featured { border-bottom: 0; padding-block: 12px; }
 .links li:not(.featured) { grid-column: 1 / -1; }
@@ -198,20 +203,20 @@ a.link:hover .link-name { color: var(--yellow); }
   .gallery[data-count="2"], .gallery[data-count="3"] { grid-template-columns: 1fr; grid-auto-rows: 220px; }
   .gallery[data-count="3"] .ph-big { grid-row: span 1; }
 }
-.wa.dc { color: #8fb4ff; }
+.wa.dc { color: #b0c6f2; }
 .links li.feat-discord .link { background: rgb(61 139 255 / .12); border-color: var(--blue); }
-.links li.feat-discord .link-name, .links li.feat-discord .go { color: #8fb4ff; }
+.links li.feat-discord .link-name, .links li.feat-discord .go { color: #b0c6f2; }
 .links li.featured .link { height: 100%; }
 
 /* "Next drinkup coming soon" state, after an event ends */
 .ticket.ended { grid-template-columns: 1fr; text-align: center; padding: 28px; }
 .ticket-next { display: grid; gap: 10px; justify-items: center; }
 .ticket-next[hidden] { display: none; }
-.next-title { margin: 0; font: 700 clamp(24px, 4vw, 32px)/1.15 var(--f-display); color: var(--yellow); text-shadow: 0 3px 0 #c76a00; text-wrap: balance; }
+.next-title { margin: 0; font: 700 clamp(24px, 4vw, 32px)/1.15 var(--f-display); color: var(--yellow); text-shadow: 0 3px 0 var(--shade); text-wrap: balance; }
 .next-body { margin: 0; color: var(--muted); max-width: 52ch; }
 .ticket-next .rsvp { justify-content: center; margin-top: 8px; }
-.btn-wa { background: var(--green); border-color: var(--green); color: var(--panel); box-shadow: 0 4px 0 #3f8a17; }
-.btn-dc { background: var(--blue); border-color: var(--blue); color: #fff; box-shadow: 0 4px 0 #1f4fa8; }
+.btn-wa { background: var(--green); border-color: var(--green); color: var(--panel); box-shadow: 0 4px 0 #447a27; }
+.btn-dc { background: var(--blue); border-color: var(--blue); color: #fff; box-shadow: 0 4px 0 #325595; }
 .btn-wa:hover, .btn-dc:hover { border-color: inherit; }
 .ticket-count[hidden], .ticket-info[hidden] { display: none; }
 

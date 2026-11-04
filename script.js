@@ -55,6 +55,7 @@
     if (ended) return;
     ended = true;
     $q(".ticket").classList.add("ended");
+    $q(".hero").classList.add("ended");
     $q(".ticket-count").hidden = true;
     $q(".ticket-info").hidden = true;
     $("ev-next").hidden = false;
