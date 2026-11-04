@@ -39,7 +39,17 @@
       "&dates=" + z(start) + "/" + z(end) +
       "&location=" + encodeURIComponent([ev.venue, ev.address].filter(Boolean).join(", ")) +
       "&details=" + encodeURIComponent("https://www.gamedevdrinkuptlv.com");
-  } else cal.hidden = true;
+    // .ics file for Apple Calendar / Outlook
+    var esc = function (t) { return String(t).replace(/([,;\\])/g, "\\$1"); };
+    var ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Gamedev Drinkup TLV//EN", "BEGIN:VEVENT",
+      "UID:" + z(start) + "@gamedevdrinkuptlv.com", "DTSTAMP:" + z(new Date()),
+      "DTSTART:" + z(start), "DTEND:" + z(end), "SUMMARY:Gamedev Drinkup TLV",
+      "LOCATION:" + esc([ev.venue, ev.address].filter(Boolean).join(", ")),
+      "URL:https://www.gamedevdrinkuptlv.com", "DESCRIPTION:https://www.gamedevdrinkuptlv.com",
+      "END:VEVENT", "END:VCALENDAR"].join("\r\n");
+    try { $("ev-ics").href = URL.createObjectURL(new Blob([ics], { type: "text/calendar" })); }
+    catch (e) { $("ev-ics").href = "data:text/calendar;charset=utf-8," + encodeURIComponent(ics); }
+  } else { cal.hidden = true; $("ev-ics").hidden = true; }
   if (ev.mapUrl) $("ev-where").href = ev.mapUrl; else $("ev-where").removeAttribute("href");
   var wa = (C.community || {}).whatsapp;
   if (wa) $("ev-wa").href = wa; else $("ev-wa").hidden = true;

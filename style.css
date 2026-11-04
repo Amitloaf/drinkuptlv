@@ -232,3 +232,10 @@ a.link:hover .link-name { color: var(--yellow); }
 .dots li { display: flex; align-items: center; gap: 10px; font: 600 15px/1.25 var(--f-display); min-width: 0; }
 .dot { flex: none; width: 22px; height: 22px; border-radius: 50%; box-shadow: inset 0 -3px 0 rgb(0 0 0 / .25), 0 0 0 2px rgb(255 255 255 / .12); }
 @media (max-width: 820px) { .guide { grid-template-columns: 1fr; gap: 22px; } }
+
+/* Calendar: a real button under the countdown */
+.cal-btn { margin-top: 12px; width: 100%; justify-content: center; gap: 8px; background: var(--cream); color: var(--panel); border-color: var(--cream); box-shadow: 0 4px 0 #9c8a78; }
+.cal-btn:hover { border-color: var(--cream); box-shadow: 0 5px 0 #9c8a78; }
+.cal-btn svg { width: 20px; height: 20px; fill: currentColor; }
+.cal-btn[hidden], .ics[hidden] { display: none; }
+.ics { display: block; margin-top: 10px; text-align: center; font-size: 13px; color: var(--muted); }
