@@ -19,7 +19,7 @@ window.DRINKUP = {
     rsvp: {
       facebook: "https://www.facebook.com/events/1098985896255060",
       luma: "https://luma.com/shomecpw",
-      meetup: ""   // TODO: Meetup event link
+      meetup: "https://www.meetup.com/gameis/events/317278894/"
     }
   },
 
